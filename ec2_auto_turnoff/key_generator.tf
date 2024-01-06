@@ -4,7 +4,7 @@ resource "tls_private_key" "private_key"{
 }
 
 resource "aws_key_pair" "aws_ec2_keypair" {
-  key_name = "terraform-generated-key-windows-an515"
+  key_name = local.aws_key_filename
   public_key = tls_private_key.private_key.public_key_openssh
 }
 
