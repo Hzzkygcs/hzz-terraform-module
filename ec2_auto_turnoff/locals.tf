@@ -18,8 +18,8 @@ locals {
   instance_automatic_turn_off_config = var.automatic_turn_off_config
 
   # no need to use `resource "local_file" "" {...}` (see  https://stackoverflow.com/a/57469070/7069108 )
-  on_first_boot_script = templatefile("./on_first_boot_script.tpl", {
-    "automatic_turn_off_script_content_in_base64": base64encode(templatefile("./automatic_turn_off_script.sh",
+  on_first_boot_script = templatefile("${path.module}/on_first_boot_script.tpl", {
+    "automatic_turn_off_script_content_in_base64": base64encode(templatefile("${path.module}/automatic_turn_off_script.sh",
       local.instance_automatic_turn_off_config
     ))
   })
