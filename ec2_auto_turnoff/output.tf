@@ -9,5 +9,5 @@ output "ssh_command_alternative" {
 }
 
 output "security_groups" {
-  value = local.security_groups
+  value = local.security_group_ids
 }
