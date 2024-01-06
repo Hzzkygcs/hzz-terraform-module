@@ -7,3 +7,7 @@ output "ssh_command_alternative" {
   # jangan lupa cd ~/.ssh
   value = local.ssh_connect_command
 }
+
+output "security_groups" {
+  value = local.security_groups
+}

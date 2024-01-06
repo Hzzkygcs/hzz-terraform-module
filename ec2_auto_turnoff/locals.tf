@@ -9,6 +9,11 @@ locals {
   private_key_path = pathexpand("~/.ssh/${local.key_filename}.pem")
   public_key_path = pathexpand("~/.ssh/${local.key_filename}.pub")
 
+  security_groups =  [
+    module.security_group.aws_security_group.allow_ssh.id,
+    module.security_group.aws_security_group.allow_all_outbound.id,
+  ]
+
   automatic_turn_off = var.automatic_turn_off
 
   temporary_script_location = var.temporary_script_location
