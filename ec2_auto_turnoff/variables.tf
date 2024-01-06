@@ -8,6 +8,9 @@ variable "key_filename"{
 variable "automatic_turn_off"{
   type = bool
 }
+variable "instance_ssh_aws_key_name"{  # you can refer to ../key_pair module
+  type = string
+}
 
 
 ### Optional Arguments

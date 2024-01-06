@@ -4,10 +4,7 @@ locals {
 
   vpc_id = (var.aws_target_vpc_id != null)? var.aws_target_vpc_id : aws_default_vpc.default_vpc.id
 
-  aws_key_filename = (var.aws_key_filename == null)? var.key_filename : var.aws_key_filename
-  key_filename = var.key_filename
-  private_key_path = pathexpand("~/.ssh/${local.key_filename}.pem")
-  public_key_path = pathexpand("~/.ssh/${local.key_filename}.pub")
+  instance_ssh_aws_key_name = var.instance_ssh_aws_key_name
 
   security_group_ids =  [
     module.security_group.aws_security_group.allow_ssh.id,
