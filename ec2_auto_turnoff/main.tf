@@ -14,7 +14,7 @@ provider "aws" {
 resource "aws_default_vpc" "default_vpc" {}
 
 module "security_group" {
-  source = "./security_group"
+  source = "../ec2_security_groups"
   vpc_id = local.vpc_id
 }
 
