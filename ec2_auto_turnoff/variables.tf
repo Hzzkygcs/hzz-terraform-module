@@ -11,6 +11,10 @@ variable "instance_ssh_aws_key_name"{  # you can refer to ../key_pair module
 variable "ssh_key_filename"{  # need this to inject the auto-turnoff script
   type = string
 }
+variable "security_group_ids"{  # need this to inject the auto-turnoff script
+  type = list(string)
+}
+
 
 
 ### Optional Arguments

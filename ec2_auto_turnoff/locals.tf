@@ -7,10 +7,7 @@ locals {
   instance_ssh_aws_key_name = var.instance_ssh_aws_key_name
   ssh_key_filename = var.ssh_key_filename
 
-  security_group_ids =  [
-    module.security_group.aws_security_group.allow_ssh.id,
-    module.security_group.aws_security_group.allow_all_outbound.id,
-  ]
+  security_group_ids =  var.security_group_ids
 
   automatic_turn_off = var.automatic_turn_off
 

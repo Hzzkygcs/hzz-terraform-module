@@ -13,11 +13,6 @@ provider "aws" {
 
 resource "aws_default_vpc" "default_vpc" {}
 
-module "security_group" {
-  source = "../ec2_security_groups"
-  vpc_id = local.vpc_id
-}
-
 resource "aws_instance" "ec2_instance" {
   ami = data.aws_ami.linux_aws_machine_image.id
   instance_type = local.instance_type
