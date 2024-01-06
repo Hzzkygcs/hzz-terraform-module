@@ -5,6 +5,7 @@ locals {
   vpc_id = (var.aws_target_vpc_id != null)? var.aws_target_vpc_id : aws_default_vpc.default_vpc.id
 
   instance_ssh_aws_key_name = var.instance_ssh_aws_key_name
+  ssh_key_filename = var.ssh_key_filename
 
   security_group_ids =  [
     module.security_group.aws_security_group.allow_ssh.id,
@@ -14,7 +15,7 @@ locals {
   automatic_turn_off = var.automatic_turn_off
 
   temporary_script_location = var.temporary_script_location
-  ssh_connect_command = "ssh -i ${local.key_filename}.pem ec2-user@${aws_instance.ec2_instance.public_ip}"
+  ssh_connect_command = "ssh -i ${local.ssh_key_filename}.pem ec2-user@${aws_instance.ec2_instance.public_ip}"
   cd_and_ssh_connect_command = "cd %USER%/.ssh ; ${local.ssh_connect_command}"
 
   instance_automatic_turn_off_config = var.automatic_turn_off_config

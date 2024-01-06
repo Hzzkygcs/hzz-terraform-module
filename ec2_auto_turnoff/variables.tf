@@ -2,13 +2,13 @@
 variable "instance_name"{
   type = string
 }
-variable "key_filename"{
-  type = string
-}
 variable "automatic_turn_off"{
   type = bool
 }
 variable "instance_ssh_aws_key_name"{  # you can refer to ../key_pair module
+  type = string
+}
+variable "ssh_key_filename"{  # need this to inject the auto-turnoff script
   type = string
 }
 
@@ -18,10 +18,7 @@ variable "aws_target_vpc_id" {
   type = string
   default = null
 }
-variable "aws_key_filename"{
-  type = string
-  default = null
-}
+
 variable "instance_type" {
   default = "t2.micro"
   type = string
