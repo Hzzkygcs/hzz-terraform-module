@@ -1,6 +1,3 @@
-output "public_subnet_a" {
-  value = aws_subnet.public_subnet_a
-}
 
 output "aws_security_group" {
   value = {

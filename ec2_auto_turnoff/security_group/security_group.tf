@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_ssh" {
   name = "allow_ssh_ec2"
-  vpc_id = aws_vpc.ec2_vpc.id
+  vpc_id = var.vpc_id
 
   ingress {
     description = "public SSH VPC"
@@ -16,7 +16,7 @@ resource "aws_security_group" "allow_ssh" {
 }
 resource "aws_security_group" "allow_all_outbound" {
   name = "allow_all_outbound"
-  vpc_id = aws_vpc.ec2_vpc.id
+  vpc_id = var.vpc_id
 
   egress {
     description = "Allow all outbound connection"

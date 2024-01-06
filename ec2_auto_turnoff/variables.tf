@@ -1,20 +1,27 @@
-variable "instance_type" {
-  default = "t2.micro"
-  type = string
-}
-
+### Required Arguments
 variable "instance_name"{
   type = string
-}
-variable "aws_key_filename"{
-  type = string
-  default = null
 }
 variable "key_filename"{
   type = string
 }
 variable "automatic_turn_off"{
   type = bool
+}
+
+
+### Optional Arguments
+variable "aws_target_vpc_id" {
+  type = string
+  default = null
+}
+variable "aws_key_filename"{
+  type = string
+  default = null
+}
+variable "instance_type" {
+  default = "t2.micro"
+  type = string
 }
 variable "temporary_script_location"{
   type = string

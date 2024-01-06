@@ -2,6 +2,8 @@ locals {
   instance_type = var.instance_type
   instance_name = var.instance_name
 
+  vpc_id = (var.aws_target_vpc_id != null)? var.aws_target_vpc_id : aws_default_vpc.default_vpc.id
+
   aws_key_filename = (var.aws_key_filename == null)? var.key_filename : var.aws_key_filename
   key_filename = var.key_filename
   private_key_path = pathexpand("~/.ssh/${local.key_filename}.pem")
